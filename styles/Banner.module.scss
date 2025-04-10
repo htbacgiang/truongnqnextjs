@@ -1,0 +1,249 @@
+// styles/Banner.module.scss
+
+.homeHeaderBanner {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  width: 100%;
+  position: relative;
+}
+
+.bannerImg {
+  width: 100%;
+  height: auto;
+}
+
+.intro {
+  position: absolute;
+  top: 200px;
+  margin-left: 100px;
+}
+
+.home {
+  display: flex;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.maxWidth {
+  width: 100%;
+  display: flex;
+}
+
+.homeContent {
+  & .text1 {
+    font-size: 27px;
+  }
+
+  & .text2 {
+    font-size: 50px;
+    margin-left: -3px;
+  }
+
+  & .text3 {
+    font-size: 40px;
+    margin: 5px 0;
+    display: flex;
+
+    & span {
+      color: crimson;
+      font-weight: 500;
+    }
+  }
+}
+
+.buttons {
+  margin: 20px 0 0 50px;
+
+  & button {
+    outline: none;
+    margin: 0 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #fff;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-image: linear-gradient(135deg, #2afadf 10%, #c346c2 100%);
+
+    &:hover {
+      transform: scale(0.97);
+    }
+  }
+}
+
+.theodoi {
+  display: grid;
+  margin-bottom: 2rem;
+  width: 100%;
+  place-items: center;
+  margin-top: 20px;
+
+  & h3 {
+    color: coral;
+  }
+}
+
+.wrapper {
+  display: flex;
+
+  & .button {
+    display: flex; // Sử dụng flex cho toàn bộ button
+    align-items: center; // Căn giữa dọc
+    height: 60px;
+    width: 60px;
+    margin: 0 5px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      width: 200px; // Khi hover, mở rộng chiều rộng
+    }
+
+    & .icon {
+      display: flex;
+      justify-content: center; // Căn giữa ngang
+      align-items: center; // Căn giữa dọc
+      height: 60px;
+      width: 60px;
+      border-radius: 50px;
+      box-sizing: border-box;
+      transition: all 0.3s ease-out;
+      flex-shrink: 0; // Đảm bảo icon không bị co lại
+
+      & svg {
+        font-size: 25px;
+        transition: all 0.3s ease-out;
+      }
+    }
+
+    &:hover .icon svg {
+      color: #fff;
+    }
+
+    & span {
+      font-size: 20px;
+      font-weight: 500;
+      margin-left: 10px;
+      white-space: nowrap; // Ngăn văn bản xuống dòng
+      opacity: 0; // Ẩn văn bản mặc định
+      transition: opacity 0.3s ease-out; // Hiệu ứng mờ dần
+    }
+
+    &:hover span {
+      opacity: 1; // Hiện văn bản khi hover
+    }
+
+    &:nth-child(1) {
+      & span {
+        color: #4267b2;
+      }
+      &:hover .icon {
+        background: #4267b2;
+      }
+    }
+
+    &:nth-child(2) {
+      & span {
+        color: #1da1f2;
+      }
+      &:hover .icon {
+        background: #1da1f2;
+      }
+    }
+
+    &:nth-child(3) {
+      & span {
+        color: #e1306c;
+      }
+      &:hover .icon {
+        background: #e1306c;
+      }
+    }
+
+    &:nth-child(4) {
+      & span {
+        color: #ff0000;
+      }
+      &:hover .icon {
+        background: #ff0000;
+      }
+    }
+  }
+}
+
+/* Media Queries */
+@media (max-width: 991.98px) {
+  .intro {
+    top: 150px;
+    margin-left: 30px;
+  }
+  .homeContent {
+    & .text2 {
+      font-size: 40px;
+    }
+    & .text3 {
+      font-size: 27px;
+    }
+  }
+  .buttons {
+    margin: 0;
+  }
+  .theodoi {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro {
+    top: 80px;
+    margin-left: 40px;
+  }
+  .homeContent {
+    & .text1 {
+      font-size: 15px;
+    }
+    & .text2 {
+      font-size: 25px;
+    }
+    & .text3 {
+      font-size: 17px;
+    }
+  }
+  .buttons button {
+    font-size: 14px;
+  }
+}
+
+
+// Style cho chữ "WEB DESIGNER"
+.webDesigner {
+  font-size: 4rem; /* Kích thước chữ lớn */
+  font-weight: bold; /* Chữ đậm */
+  color: transparent; /* Màu chữ trong suốt */
+  -webkit-text-stroke: 2px white; /* Viền đen cho chữ */
+  text-stroke: 2px white; /* Viền đen (chuẩn chung) */
+  text-transform: uppercase; /* Chữ in hoa */
+  animation: bounce 5s infinite !important;
+  letter-spacing: 2px; /* Khoảng cách giữa các chữ */
+}
+
+// Định nghĩa keyframes cho hiệu ứng bounce
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
