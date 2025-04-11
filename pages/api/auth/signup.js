@@ -15,7 +15,6 @@ export default async function handler(req, res) {
 
     // Parse request body
     const { name, email, password, conf_password, phone, agree } = req.body;
-    const isAgree = agree === "on";
 
     // Kiểm tra đầu vào
     if (!name || !email || !phone || !password || !conf_password) {
@@ -27,7 +26,7 @@ export default async function handler(req, res) {
     if (password !== conf_password) {
       return res.status(400).json({ message: "Mật khẩu không khớp." });
     }
-    if (!isAgree) {
+    if (agree !== true) { // Sửa ở đây: kiểm tra agree là true
       return res
         .status(400)
         .json({
@@ -68,7 +67,7 @@ export default async function handler(req, res) {
       email,
       phone,
       password: cryptedPassword,
-      agree: isAgree,
+      agree, // Lưu giá trị boolean
     });
     const addedUser = await newUser.save();
     console.log("User added to the database");
@@ -77,13 +76,12 @@ export default async function handler(req, res) {
     const activation_token = createActivationToken({ id: addedUser._id.toString() });
     const url = `${process.env.BASE_URL}/activate?token=${activation_token}`;
 
-
     // Gửi email kích hoạt
     await sendEmail(email, url, "", "Kích hoạt tài khoản.");
     // Cập nhật thời gian gửi email xác nhận
     addedUser.emailVerificationSentAt = new Date();
     await addedUser.save();
-    
+
     // Ngắt kết nối database
     await db.disconnectDb();
 

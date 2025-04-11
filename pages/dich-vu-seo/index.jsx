@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import DeviceShowcase from '../../components/profiles/DeviceShowcase';
 import DefaultLayout from '../../components/layout/DefaultLayout';
 import DemoProduct from '../../components/profiles/DemoProduct';
@@ -16,14 +15,7 @@ export default function Home() {
                 <h1 className="hidden">
                     Trường NQ Web - Dịch vụ SEO chuyên nghiệp, Giải pháp Tối ưu Website & Thương hiệu số
                 </h1>
-                <Head>
-                    <title>Dịch vụ SEO - Tối ưu website & Nâng cao Thương hiệu số | Trường NQ Web</title>
-                    <meta 
-                        name="description" 
-                        content="Trường NQ Web cung cấp dịch vụ SEO chuyên nghiệp giúp website của bạn đạt thứ hạng cao trên Google, tăng lưu lượng truy cập và giảm chi phí quảng cáo. Liên hệ ngay để cải thiện hiệu quả kinh doanh và phát triển thương hiệu số!" 
-                    />
-                </Head>
-                
+
                 {/* Phần Hero với nội dung dịch vụ SEO */}
                 <SeoTheme />
 
@@ -54,4 +46,41 @@ export default function Home() {
             </div>
         </DefaultLayout>
     );
+}
+
+export async function getServerSideProps() {
+    const meta = {
+        title: "Dịch vụ SEO - Tối ưu website & Nâng cao Thương hiệu số | Trường NQ Web",
+        description:
+            "Trường NQ Web cung cấp dịch vụ SEO chuyên nghiệp giúp website của bạn đạt thứ hạng cao trên Google, tăng lưu lượng truy cập và giảm chi phí quảng cáo. Liên hệ ngay để cải thiện hiệu quả kinh doanh và phát triển thương hiệu số!",
+        keywords:
+            "dịch vụ SEO, SEO chuyên nghiệp, tối ưu website, tăng thứ hạng Google, Trường NQ Web, thương hiệu số",
+        author: "Trường NQ Web",
+        robots: "index, follow",
+        canonical: "https://truongnq.vn/dich-vu-seo",
+        og: {
+            title: "Dịch vụ SEO - Tối ưu website & Nâng cao Thương hiệu số | Trường NQ Web",
+            description:
+                "Trường NQ Web cung cấp dịch vụ SEO chuyên nghiệp giúp website đạt thứ hạng cao trên Google, tăng lưu lượng truy cập và phát triển thương hiệu số.",
+            image: "https://truongnq.vn/dic-vu-seo.jpg",
+            imageWidth: "1200",
+            imageHeight: "630",
+            url: "https://truongnq.vn/dich-vu-seo",
+            type: "website",
+            siteName: "Trường NQ Web",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "Dịch vụ SEO - Tối ưu website & Nâng cao Thương hiệu số | Trường NQ Web",
+            description:
+                "Trường NQ Web - Dịch vụ SEO chuyên nghiệp giúp tăng thứ hạng website và phát triển thương hiệu số.",
+            image: "https://truongnq.vn/dic-vu-seo.jpg",
+        },
+    };
+
+    return {
+        props: {
+            meta,
+        },
+    };
 }

@@ -87,7 +87,7 @@ export async function getServerSideProps() {
         description:
           "Tối ưu hóa thương hiệu online với website hiện đại và chiến lược SEO hiệu quả từ Trường NQ.",
         type: "website",
-        image: "https://truongnq.vn/thumb.jpg",
+        image: "https://truongnq.vn/baner-web.jpg",
         imageWidth: "1200",
         imageHeight: "630",
         url: "https://truongnq.vn",
@@ -97,7 +97,7 @@ export async function getServerSideProps() {
         title: "Trường NQ - Giải pháp Website & SEO tối ưu",
         description:
           "Thiết kế web hiện đại, chuẩn SEO, giúp doanh nghiệp tăng trưởng vượt trội.",
-        image: "https://truongnq.vn/thumb.jpg",
+        image: "https://truongnq.vn/baner-web.jpg",
       },
     };
 

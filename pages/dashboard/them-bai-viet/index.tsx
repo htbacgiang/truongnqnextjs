@@ -31,7 +31,6 @@ const Create: NextPage<Props> = () => {
     <AdminLayout title="Thêm bài viết mới">
       <div className="p-2">
       <Heading title='Thêm bài viết mới'/>
-
       </div>
       <div className="w-11/12 mx-auto">
         <Editor onSubmit={handleSubmit} busy={creating} />

@@ -64,7 +64,7 @@ const createNewPost: NextApiHandler = async (req, res) => {
       const thumbnail = files.thumbnail as formidable.File;
       const { secure_url: url, public_id } = await cloudinary.uploader.upload(
         thumbnail.filepath,
-        { folder: "ecobacgiang" }
+        { folder: "tantruonggiang" }
       );
       newPost.thumbnail = { url, public_id };
     }

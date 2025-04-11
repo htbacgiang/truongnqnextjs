@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaYoutube } from "react-icons/fa";
 import Intro from "../../components/about/Intro";
 import DefaultLayout from "../../components/layout/DefaultLayout";
-import Head from "next/head";
 import Image from "next/image";
 import AboutMe from "../../components/profiles/AboutMe";
 import EducationExperience from "../../components/profiles/EducationExperience";
@@ -21,56 +20,6 @@ export default function AboutSection() {
 
   return (
     <DefaultLayout>
-      <Head>
-        <title>Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả</title>
-        <meta
-          name="description"
-          content="Trường NQ Web - thiết kế website, SEO tổng thể, Ladipage, quảng cáo Google Ads, giải pháp bán hàng và marketing hiệu quả."
-        />
-        <meta
-          name="keywords"
-          content="Trường NQ Web, thiết kế website, SEO tổng thể, Ladipage, quảng cáo Google Ads, marketing online, phát triển bền vững"
-        />
-        <meta name="author" content="Trường NQ Web" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://truongnq.vn/gioi-thieu" />
-
-        {/* Thẻ Open Graph */}
-        <meta
-          property="og:title"
-          content="Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả"
-        />
-        <meta
-          property="og:description"
-          content="Trường NQ Web - thiết kế website, SEO tổng thể, Ladipage, quảng cáo Google Ads, giải pháp bán hàng và marketing hiệu quả."
-        />
-        <meta property="og:image" content="https://truongnq.vn/thumb.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:url" content="https://truongnq.vn/gioi-thieu" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="vi_VN" />
-        <meta property="og:site_name" content="Trường NQ Web" />
-
-        {/* Thẻ Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả"
-        />
-        <meta
-          name="twitter:description"
-          content="Trường NQ Web - thiết kế website, SEO, Ladipage, Google Ads, giải pháp marketing hiệu quả."
-        />
-        <meta
-          name="twitter:image"
-          content="https://truongnq.vn/thumb.jpg"
-        />
-
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className="h-[80px] bg-white"></div>
       <AboutMe />
       <div className="py-6 px-6">
@@ -78,7 +27,9 @@ export default function AboutSection() {
           {/* Phần văn bản */}
           <div>
             <p className="mb-4 text-gray-700">
-              <h2 className="text-green-700 text-xl  md:text-3xl font-bold mb-2">🎯 Tầm nhìn & Sứ mệnh </h2>
+              <h2 className="text-green-700 text-xl md:text-3xl font-bold mb-2">
+                🎯 Tầm nhìn & Sứ mệnh
+              </h2>
               <br />
               <strong>Tầm nhìn:</strong> Trở thành đơn vị thiết kế web & marketing đáng tin cậy cho các cá nhân, doanh nghiệp vừa và nhỏ tại Việt Nam, nơi bạn không cần biết công nghệ vẫn có thể phát triển mạnh mẽ trên nền tảng số.
               <br />
@@ -86,8 +37,8 @@ export default function AboutSection() {
             </p>
           </div>
 
-     {/* Phần video - Responsive */}
-     <div className="relative w-full mx-auto rounded-lg shadow-lg overflow-hidden">
+          {/* Phần video - Responsive */}
+          <div className="relative w-full mx-auto rounded-lg shadow-lg overflow-hidden">
             {/* Ảnh nền */}
             <Image
               src="/images/you-tube.jpg"
@@ -148,4 +99,44 @@ export default function AboutSection() {
       </div>
     </DefaultLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const meta = {
+    title: "Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả",
+    description:
+      "Trường NQ Web - thiết kế website, SEO tổng thể, Ladipage, quảng cáo Google Ads, giải pháp bán hàng và marketing hiệu quả.",
+    keywords:
+      "Trường NQ Web, thiết kế website, SEO tổng thể, Ladipage, quảng cáo Google Ads, marketing online, phát triển bền vững",
+    author: "Trường NQ Web",
+    robots: "index, follow",
+    viewport: "width=device-width, initial-scale=1.0",
+    canonical: "https://truongnq.vn/gioi-thieu",
+    og: {
+      title: "Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả",
+      description:
+        "Trường NQ Web - thiết kế website, SEO tổng thể, Ladipage, quảng cáo Google Ads, giải pháp bán hàng và marketing hiệu quả.",
+      image: "https://truongnq.vn/thumb.jpg",
+      imageWidth: "1200",
+      imageHeight: "630",
+      url: "https://truongnq.vn/gioi-thieu",
+      type: "website",
+      locale: "vi_VN",
+      siteName: "Trường NQ Web",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả",
+      description:
+        "Trường NQ Web - thiết kế website, SEO, Ladipage, Google Ads, giải pháp marketing hiệu quả.",
+      image: "https://truongnq.vn/thumb.jpg",
+    },
+    favicon: "/favicon.ico",
+  };
+
+  return {
+    props: {
+      meta,
+    },
+  };
 }
