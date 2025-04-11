@@ -191,7 +191,7 @@ export const getServerSideProps: GetServerSideProps<{
         description:
           "Khám phá bài viết về thiết kế website, dịch vụ SEO và giải pháp số từ Trường NQ Web.",
         type: "website",
-        image: "https://truongnq.vn/thumb.jpg",
+        image: "https://truongnq.vn/baner-web.jpg",
         imageWidth: "1200",
         imageHeight: "630",
         url: "https://truongnq.vn/bai-viet",
@@ -202,7 +202,7 @@ export const getServerSideProps: GetServerSideProps<{
         title: "Bài viết về Thiết kế Website & SEO - Trường NQ Web",
         description:
           "Khám phá bài viết về thiết kế website, dịch vụ SEO và giải pháp số từ Trường NQ Web.",
-        image: "https://truongnq.vn/thumb.jpg",
+        image: "https://truongnq.vn/baner-web.jpg",
       },
     };
 

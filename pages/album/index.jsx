@@ -107,7 +107,7 @@ export async function getServerSideProps() {
         "Khám phá bộ sưu tập album ảnh tuyệt đẹp tại Trường NQ Web, lưu giữ những khoảnh khắc đáng nhớ.",
       type: "website",
       url: "https://truongnq.vn/album",
-      image: "https://truongnq.vn/thumb.jpg",
+      image: "https://truongnq.vn/baner-web.jpg",
       imageWidth: "1200",
       imageHeight: "630",
       siteName: "Trường NQ Web",
@@ -117,7 +117,7 @@ export async function getServerSideProps() {
       title: "Album Ảnh - Trường NQ Web",
       description:
         "Khám phá bộ sưu tập album ảnh tuyệt đẹp tại Trường NQ Web.",
-      image: "https://truongnq.vn/thumb.jpg",
+      image: "https://truongnq.vn/baner-web.jpg",
     },
   };
 

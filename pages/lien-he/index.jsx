@@ -68,7 +68,7 @@ export async function getServerSideProps() {
         "Liên hệ với Trường NQ Web qua địa chỉ, email và số điện thoại.",
       type: "website",
       url: "https://truongnq.vn/lien-he",
-      image: "https://truongnq.vn/thumb.jpg",
+      image: "https://truongnq.vn/baner-web.jpg",
       imageWidth: "1200",
       imageHeight: "630",
       siteName: "Trường NQ Web",
@@ -78,7 +78,7 @@ export async function getServerSideProps() {
       title: "Liên Hệ - Trường NQ Web",
       description:
         "Liên hệ với Trường NQ Web qua địa chỉ, email và số điện thoại.",
-      image: "https://truongnq.vn/thumb.jpg",
+      image: "https://truongnq.vn/baner-web.jpg",
     },
   };
 

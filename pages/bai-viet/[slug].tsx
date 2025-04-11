@@ -178,7 +178,7 @@ export const getServerSideProps: GetServerSideProps<
         title,
         description: meta,
         type: "website",
-        image: thumbnail?.url || "https://truongnq.vn/thumb.jpg",
+        image: thumbnail?.url || "https://truongnq.vn/baner-web.jpg",
         imageWidth: "1200",
         imageHeight: "630",
         url: `https://truongnq.vn/bai-viet/${slug}`,
@@ -188,7 +188,7 @@ export const getServerSideProps: GetServerSideProps<
         card: "summary_large_image",
         title,
         description: meta,
-        image: thumbnail?.url || "https://truongnq.vn/thumb.jpg",
+        image: thumbnail?.url || "https://truongnq.vn/baner-web.jpg",
       },
     };
 

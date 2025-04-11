@@ -8,8 +8,10 @@ import User from "../../../models/User";
 import clientPromise from "./lib/mongodb";
 import db from "../../../utils/db";
 
-// Kết nối database an toàn
-db.connectDb().catch((error) => console.error("MongoDB connection error:", error));
+// Kết nối database với logging
+db.connectDb().catch((error) => {
+  console.error("MongoDB connection error:", error);
+});
 
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
@@ -25,6 +27,7 @@ export default NextAuth({
           if (!credentials.email || !credentials.password) {
             throw new Error("Email and password are required.");
           }
+          await db.connectDb();
           const user = await User.findOne({ email: credentials.email });
           if (!user) {
             throw new Error("This email does not exist.");
@@ -36,10 +39,13 @@ export default NextAuth({
           if (!isMatch) {
             throw new Error("Email hoặc mật khẩu không đúng");
           }
-          return user;
+          console.log("User authorized:", user.email, "ID:", user._id.toString()); // Debug
+          return { id: user._id.toString(), email: user.email, name: user.name, role: user.role };
         } catch (error) {
-          console.error("Authorization error:", error);
+          console.error("Authorization error:", error.message);
           throw new Error(error.message || "Internal server error.");
+        } finally {
+          await db.disconnectDb();
         }
       },
     }),
@@ -53,23 +59,43 @@ export default NextAuth({
     }),
   ],
   callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = user.role || "user";
+      }
+      console.log("JWT callback:", { token }); // Debug
+      return token;
+    },
     async session({ session, token }) {
       try {
-        const user = await User.findById(token.sub);
-        if (!user) throw new Error("User not found.");
-        session.user.id = token.sub || user._id.toString();
-        session.user.name = user.name; // <-- Thêm dòng này để cập nhật tên
+        console.log("Session callback - Token:", token); // Debug
+        if (!token.id) {
+          console.error("No user ID in token");
+          return session;
+        }
+        await db.connectDb();
+        const user = await User.findById(token.id);
+        if (!user) {
+          console.error("User not found for ID:", token.id);
+          return session; // Trả về session mặc định thay vì throw error
+        }
+        session.user.id = token.id;
+        session.user.name = user.name;
+        session.user.email = user.email;
         session.user.role = user.role || "user";
         session.user.emailVerified = user.emailVerified || false;
         session.user.image = user.image;
-        // Lấy các trường cá nhân trực tiếp từ userSchema
         session.user.gender = user.gender;
         session.user.dateOfBirth = user.dateOfBirth;
         session.user.phone = user.phone;
+        console.log("Session created for:", session.user.email, "ID:", session.user.id); // Debug
         return session;
       } catch (error) {
-        console.error("Session callback error:", error);
-        return session;
+        console.error("Session callback error:", error.message);
+        return session; // Trả về session mặc định để tránh crash
+      } finally {
+        await db.disconnectDb();
       }
     },
   },
@@ -81,15 +107,5 @@ export default NextAuth({
     strategy: "jwt",
   },
   secret: process.env.JWT_SECRET,
+  debug: process.env.NODE_ENV === "development", // Bật debug ở local
 });
-
-const signInUser = async ({ password, user }) => {
-  if (!user.password) {
-    throw new Error("Vui lòng nhập mật khẩu");
-  }
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    throw new Error("Email hoặc mật khẩu không đúng");
-  }
-  return user;
-};

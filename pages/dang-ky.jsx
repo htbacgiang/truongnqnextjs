@@ -37,6 +37,7 @@ export default function Signup({ csrfToken }) {
   const [status, setStatus] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -49,7 +50,8 @@ export default function Signup({ csrfToken }) {
   const signUpHandler = async (values, setSubmitting) => {
     try {
       setStatus("Đang đăng ký...");
-      const { data } = await axios.post("/api/auth/signup", {
+      console.log("Submitting signup:", values); // Debug
+      const { data } = await axios.post(`${baseUrl}/api/auth/signup`, {
         name: values.username,
         email: values.email,
         phone: values.phone,
@@ -57,17 +59,21 @@ export default function Signup({ csrfToken }) {
         conf_password: values.confirm_password,
         agree: values.agree,
       });
+      console.log("Signup response:", data); // Debug
       setSuccess(data.message);
       setError("");
       setStatus("Đăng ký thành công!");
+      toast.success("Đăng ký thành công!");
       setSubmitting(false);
       setTimeout(() => {
         Router.push("/dang-nhap");
       }, 2000);
     } catch (error) {
+      console.error("Signup error:", error.response?.data || error.message);
       setStatus("");
       setSuccess("");
       setError(error.response?.data?.message || "Đã xảy ra lỗi.");
+      toast.error(error.response?.data?.message || "Đã xảy ra lỗi.");
       setSubmitting(false);
       setTimeout(() => {
         setError("");
@@ -96,7 +102,7 @@ export default function Signup({ csrfToken }) {
       >
         <div className="absolute inset-0 bg-black opacity-70"></div>
 
-        <div className="bg-gray-900 rounded-2xl p-8 w-full max-w-md relative z-10 opacity-95">
+        <div className="bg-gray-900 rounded-2xl p-8 w-full max-w-md relative z-10 opacity-90">
           <h2 className="text-3xl font-bold text-white text-center mb-8">Đăng ký</h2>
 
           <Formik
@@ -112,31 +118,13 @@ export default function Signup({ csrfToken }) {
             validateOnChange={true}
             validateOnBlur={true}
             onSubmit={(values, { setSubmitting }) => {
-              console.log("Values before validation:", values); // Debug giá trị
-
-              // Kiểm tra thủ công trước khi validate
+              console.log("Form values:", values); // Debug
               if (!values.agree) {
                 toast.error("Bạn phải đồng ý với Điều khoản & Chính sách bảo mật.");
                 setSubmitting(false);
                 return;
               }
-
-              // Chạy validation với Yup
-              signupValidation
-                .validate(values, { abortEarly: false })
-                .then(() => {
-                  console.log("Validation passed"); // Debug
-                  // Nếu không có lỗi, gọi signUpHandler
-                  signUpHandler(values, setSubmitting);
-                })
-                .catch((err) => {
-                  console.log("Validation errors:", err.inner); // Debug lỗi
-                  // Hiển thị tất cả lỗi qua toast
-                  err.inner.forEach((error) => {
-                    toast.error(error.message);
-                  });
-                  setSubmitting(false);
-                });
+              signUpHandler(values, setSubmitting);
             }}
           >
             {({ values, setFieldValue, handleChange, errors, touched, isSubmitting }) => (
@@ -345,15 +333,19 @@ export default function Signup({ csrfToken }) {
 export async function getServerSideProps(context) {
   const { req } = context;
   const session = await getSession({ req });
-  const csrfToken = await getCsrfToken(context);
+  console.log("Signup session:", session); // Debug
 
   if (session) {
+    console.log("Redirecting to dashboard");
     return {
       redirect: {
         destination: "/dashboard",
+        permanent: false,
       },
     };
   }
+
+  const csrfToken = await getCsrfToken(context);
 
   return {
     props: {

@@ -116,7 +116,7 @@ export async function getServerSideProps() {
       title: "Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả",
       description:
         "Trường NQ Web - thiết kế website, SEO tổng thể, Ladipage, quảng cáo Google Ads, giải pháp bán hàng và marketing hiệu quả.",
-      image: "https://truongnq.vn/thumb.jpg",
+      image: "https://truongnq.vn/baner-web.jpg",
       imageWidth: "1200",
       imageHeight: "630",
       url: "https://truongnq.vn/gioi-thieu",
@@ -129,7 +129,7 @@ export async function getServerSideProps() {
       title: "Trường NQ Web: Thiết Kế Website & Marketing Hiệu Quả",
       description:
         "Trường NQ Web - thiết kế website, SEO, Ladipage, Google Ads, giải pháp marketing hiệu quả.",
-      image: "https://truongnq.vn/thumb.jpg",
+      image: "https://truongnq.vn/baner-web.jpg",
     },
     favicon: "/favicon.ico",
   };

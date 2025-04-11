@@ -110,7 +110,7 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
       >
         <div className="absolute inset-0 bg-black opacity-70"></div>
 
-        <div className="bg-gray-900 rounded-2xl p-8 w-full max-w-md relative z-10 opacity-95">
+        <div className="bg-gray-900 rounded-2xl p-8 w-full max-w-md relative z-10 opacity-90">
           <h2 className="text-3xl font-bold text-white text-center mb-8">Đăng nhập</h2>
 
           <Formik
