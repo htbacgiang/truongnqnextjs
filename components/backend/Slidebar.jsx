@@ -44,28 +44,20 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
 
   const sildebarLinks = [
     {
-      title: "Đặt hàng",
-      icon: ListOrdered,
-      href: "/dashboard/dat-hang",
-    },
-    {
       title: "Bài viết",
       icon: Notebook,
       href: "/dashboard/bai-viet",
+    },
+    {
+      title: "Thêm bài viết",
+      icon: SquarePen,
+      href: "/dashboard/them-bai-viet",
     },
     {
       title: "Khách hàng",
       icon: Users2,
       href: "/dashboard/khach-hang",
     },
-    {
-      title: "Cài đặt",
-      icon: Settings,
-      href: "/dashboard",
-    },
-  ];
-
-  const catalogueLinks = [
     {
       title: "Sản phẩm",
       icon: ShoppingCart,
@@ -74,18 +66,19 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
     {
       title: "Thêm sản phẩm",
       icon: FolderPlus,
-      href: "/dashboard/tao-san-pham",
+      href: "/dashboard/them-san-pham",
     },
     {
-      title: "Mã giảm giá",
-      icon: Component,
-      href: "/dashboard/ma-giam-gia",
+      title: "Cài đặt",
+      icon: Settings,
+      href: "/cai-dat",
     },
-    {
-      title: "Thêm bài viết",
-      icon: SquarePen,
-      href: "/dashboard/them-bai-viet",
-    },
+  ];
+
+  const catalogueLinks = [
+
+  
+
   ];
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -93,11 +86,6 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
   const handleSignOut = async () => {
     await signOut({ callbackUrl: "/" }); // Chuyển hướng về trang chủ sau khi đăng xuất
   };
-
-  // Nếu đang tải trạng thái phiên, hiển thị loading
-  if (status === "loading") {
-    return <div>Đang tải...</div>;
-  }
 
   return (
     <div
@@ -107,8 +95,8 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
           : "mt-16 hidden sm:mt-0 sm:block dark:bg-slate-700 bg-slate-50 space-y-6 w-52 h-screen dark:text-slate-50 text-slate-800 fixed left-0 top-0 shadow-md overflow-y-scroll"
       }
     >
-      <Link onClick={() => setShowSidebar(false)} className="mb-6" href="/">
-        <Image height={200} width={200} alt="avatar" src="/logo1.png" />
+      <Link onClick={() => setShowSidebar(false)} className="mb-6 justify-center mx-auto flex mt-2" href="/">
+        <Image height={100} width={100} alt="avatar" src="/logotruongnqvn.png" />
       </Link>
 
       <div className="space-y-3 flex flex-col mt-14">
@@ -124,41 +112,6 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
           <span>DashBoard</span>
         </Link>
 
-        <Collapsible>
-          <CollapsibleTrigger
-            className=""
-            onClick={() => setOpenMenu(!openMenu)}
-          >
-            <div className="flex items-center space-x-3 px-6">
-              <div className="flex items-center space-x-3">
-                <MenuSquare />
-                <span>Danh mục </span>
-              </div>
-              {openMenu ? <ChevronUp /> : <ChevronDown />}
-            </div>
-          </CollapsibleTrigger>
-
-          <CollapsibleContent className="px-3 pt-3 pl-8">
-            {catalogueLinks.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  onClick={() => setShowSidebar(false)}
-                  href={item.href}
-                  key={i}
-                  className={
-                    pathname === item.href
-                      ? "flex items-center space-x-3 py-2 text-lime-500"
-                      : "flex items-center space-x-3 py-2"
-                  }
-                >
-                  <Icon />
-                  <span>{item.title}</span>
-                </Link>
-              );
-            })}
-          </CollapsibleContent>
-        </Collapsible>
 
         {sildebarLinks.map((item, i) => {
           const Icon = item.icon;

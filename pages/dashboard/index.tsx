@@ -13,9 +13,6 @@ export default function Dashboard({ user }: { user: { role: string } }) {
     <AdminLayout title="Dashboard">
       <Heading title="Dashboard" />
       <div className="p-8 bg-white dark:bg-slate-900 text-slate-50 min-h-screen">
-        <LargeCards />
-        <SmallCards />
-        <DashboardCharts />
         <CustomDataTable />
       </div>
     </AdminLayout>

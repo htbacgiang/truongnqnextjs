@@ -28,7 +28,7 @@ const uploadNewImage: NextApiHandler = async (req, res) => {
     const { secure_url: url } = await cloudinary.uploader.upload(
       imageFile.filepath,
       {
-        folder: "tantruonggiang",
+        folder: "truongnqvn",
       }
     );
 
@@ -44,7 +44,7 @@ const readAllImages: NextApiHandler = async (req, res) => {
     const { resources } = await cloudinary.api.resources({
       resource_type: "image",
       type: "upload",
-      prefix: "tantruonggiang",
+      prefix: "truongnqvn",
       max_results: 1000,
     });
 

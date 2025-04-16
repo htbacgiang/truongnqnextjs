@@ -26,7 +26,7 @@ const DemoProduct = () => {
     {
       title: "Nội thất Tân Trường Giang",
       image: "/images/seo-tan-truong-giang.png",
-      linkLight: "https://tantruonggiang.com.vn/",
+      linkLight: "https://greenlahome.vn/",
     },
   ];
 

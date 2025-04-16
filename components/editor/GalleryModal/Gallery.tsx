@@ -24,7 +24,7 @@ const Gallery: FC<Props> = ({
       {uploading && images.length === 0 && (
         <div className="basis-1/4 p-2 aspect-square flex flex-col items-center justify-center bg-secondary-light text-primary-dark rounded animate-pulse">
           <BsCardImage size={60} />
-          <p>Uploading...</p>
+          <p>Đang tải...</p>
         </div>
       )}
 
@@ -35,7 +35,7 @@ const Gallery: FC<Props> = ({
       {uploading && (
         <div className="basis-1/4 p-2 aspect-square flex flex-col items-center justify-center bg-secondary-light text-primary-dark rounded animate-pulse">
           <BsCardImage size={60} />
-          <p>Uploading</p>
+          <p>Đang tải</p>
         </div>
       )}
 
