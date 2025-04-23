@@ -196,7 +196,7 @@ const Editor: FC<Props> = ({
         </div>
 
         {editor ? <EditLink editor={editor} /> : null}
-        <EditorContent editor={editor} className="min-h-[300px] " />
+        <EditorContent editor={editor} className="min-h-[300px] prose max-w-full mx-auto" />
         
         <div className="h-[1px] w-full bg-secondary-dark dark:bg-secondary-light my-3" />
         <SEOForm

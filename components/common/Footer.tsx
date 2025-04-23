@@ -65,7 +65,7 @@ const Footer = () => {
               Chúng tôi không chỉ xây dựng website “cho đẹp”, mà tạo ra một công cụ bán hàng và truyền thông thực thụ cho doanh nghiệp, cá nhân và thương hiệu cá nhân
             </p>
             <p className="text-base text-gray-600 mb-2 font-semibold">
-              📍 Đồng Tân, Ứng Hòa, Hà Nội
+              📍 Trầm Lộng, Ứng Hòa, Hà Nội
             </p>
             <p className="text-sbasem text-gray-600 mb-2 font-semibold">
               📞 0866.572.271
@@ -89,7 +89,6 @@ const Footer = () => {
               </li>
               <li className="hover:text-green-500 hover:translate-x-2 transition-all duration-300 cursor-pointer">
               <Link href="/lien-he"> Địa chỉ Maps</Link>
-                
               </li>
               <li className="hover:text-green-500 hover:translate-x-2 transition-all duration-300 cursor-pointer">
                 Tuyển Dụng
@@ -141,7 +140,7 @@ const Footer = () => {
                   className="rounded-full hover:scale-110 transition-transform duration-300"
                 />
               </Link>
-              <Link href="https://tiktok.com" target="_blank">
+              <Link href="https://www.tiktok.com/@truongtl27.ht" target="_blank">
                 <Image
                   src="/tiktok.png"
                   alt="TikTok"
@@ -165,9 +164,6 @@ const Footer = () => {
 
         {/* Footer bản quyền */}
         <div className="flex text-base justify-center items-center text-gray-600 gap-3 flex-wrap mt-6">
-          <p>
-            Vị trí: <span className="font-bold">{location.district}, {location.province}, {location.country}</span>
-          </p>
           <p>© 2025 truongnq.vn. All rights reserved.</p>
         </div>
       </footer>

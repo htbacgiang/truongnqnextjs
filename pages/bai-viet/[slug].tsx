@@ -67,16 +67,16 @@ const SinglePost: NextPage<Props> = ({ post }) => {
 
   return (
     <DefaultLayout>
-      <div className="container mx-auto px-8 py-8 md:flex md:space-x-8">
+      <div className="container mx-auto px-5 py-8 md:flex md:space-x-8">
         <div className="col-12 col-md-10 mb-4 mb-md-0">
           <div className="md:pb-20 pb-6 container mx-auto mt-[60px] sm:mt-[91px]">
             {/* Breadcrumb */}
-            <div className="flex font-semibold gap-2 text-sm text-gray-600">
+            <div className="flex font-semibold gap-2 text-base text-gray-600">
               <Link href="/bai-viet" className="hover:text-blue-800 whitespace-nowrap">
                 Bài viết
               </Link>
               <span>›</span>
-              <span className="flex font-semibold gap-2 mb-4 text-sm text-gray-600">
+              <span className="flex font-semibold gap-2 mb-4 text-base text-gray-600">
                 {trimText(title, 35)}
               </span>
             </div>
