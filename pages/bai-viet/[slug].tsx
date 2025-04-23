@@ -11,6 +11,8 @@ import Share from "../../components/common/Share";
 import Link from "next/link";
 import Image from "next/image";
 import { trimText } from "../../utils/helper";
+import Head from "next/head";
+import AdBanner from "../../components/profiles/AdBanner";
 
 type PostData = {
   id: string;
@@ -129,6 +131,8 @@ const SinglePost: NextPage<Props> = ({ post }) => {
                   </Link>
                 ))}
             </div>
+            {/* Quảng cáo bên dưới phần "Bài viết cùng chủ đề" */}
+            <AdBanner key="related-posts-ad" adSlot="7944007968" />
           </div>
         </div>
       </div>
