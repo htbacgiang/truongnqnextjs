@@ -37,9 +37,9 @@ export default function Home({ posts }) {
       <Banner />
       <ProfileHero />
       <DemoSection />
+      <SEOBenefitComponent />
       <AboutMe />
       <ContactForm />
-      <SEOBenefitComponent />
       <TestimonialSection />
       <BlogHero />
       <div className="container mx-auto p-3 pb-10">

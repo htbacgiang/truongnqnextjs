@@ -70,7 +70,7 @@ const Blogs: NextPage<Props> = ({ posts }) => {
       <div className="pb-12">
         <div className="flex flex-col gap-4 w-full">
           {/* Breadcrumb */}
-          <div className="flex gap-2 px-4 ml-12 uppercase font-semibold">
+          <div className="flex gap-2 px-4 md:ml-12 ml-2  uppercase font-semibold">
             <Link href="/">Trang chủ</Link>
             <span>•</span>
             <Link href="/bai-viet" className="text-blue-800">

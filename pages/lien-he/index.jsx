@@ -1,7 +1,6 @@
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 import DefaultLayout from "../../components/layout/DefaultLayout";
-import ContactForm from "../../components/header/ContactForm";
-import SeoTheme from "../../components/profiles/SEOTheme";
+import ContactForm from "../../components/profiles/ContactForm";
 
 export default function ContactPage() {
   return (
@@ -22,6 +21,7 @@ export default function ContactPage() {
               </h3>
               <p className="text-gray-400">
                Trầm Lộng, Ứng Hòa, Hà Nội
+                <br />
               </p>
             </div>
             {/* Card: E-Mail */}

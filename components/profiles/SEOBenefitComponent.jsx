@@ -6,7 +6,7 @@ const SEOBenefitComponent = () => {
       {/* Left Panel - Image */}
       <div className="w-full md:w-1/2 p-4 md:p-6">
         <img
-          src="/baner-web.jpg"
+          src="/baner-web-2.jpg"
           alt="SEO Banner"
           className="w-full h-auto rounded-lg shadow-lg object-cover ]"
         />
