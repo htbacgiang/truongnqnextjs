@@ -84,7 +84,7 @@ const SinglePost: NextPage<Props> = ({ post }) => {
             </div>
 
             {/* Tiêu đề bài viết */}
-            <h1 className="md:text-3xl text-xl font-bold text-primary-dark dark:text-primary">
+            <h1 className="md:text-2xl text-xl font-bold text-primary-dark dark:text-primary">
               {title}
             </h1>
             <div className="mt-2 mb-2">

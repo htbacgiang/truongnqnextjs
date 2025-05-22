@@ -16,7 +16,7 @@ const DemoProduct = () => {
     {
       title: "Đồng phục thể thao UNIVISPORT",
       image: "/images/seo-unvisport.png",
-      linkLight: "https://univisport.com/",
+      linkLight: "https://dongphucunivi.com/",
     },
     {
       title: "Eco Bắc Giang Smart Farm",
@@ -24,7 +24,7 @@ const DemoProduct = () => {
       linkLight: "https://ecobacgiang.vn/",
     },
     {
-      title: "Nội thất Tân Trường Giang",
+      title: "Nội thất Greenla Home",
       image: "/images/seo-tan-truong-giang.png",
       linkLight: "https://greenlahome.vn/",
     },

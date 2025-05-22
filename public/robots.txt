@@ -6,4 +6,4 @@ Allow: /
 Host: https://truongnq.vn
 
 # Sitemaps
-Sitemap: https://truongnq.vn/sitemap.xml
+Sitemap: https://truongnq.vn/api/sitemap.xml

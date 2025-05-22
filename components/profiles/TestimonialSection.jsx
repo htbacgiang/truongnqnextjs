@@ -22,7 +22,7 @@ export default function TestimonialSection() {
         company: 'Website: greenlahome.vn',
         project: 'Tư Vấn Thiết Kế Nội Thất',
         review:
-          'Tôi rất hài lòng với dịch vụ tư vấn thiết kế nội thất của Tân Trường Giang. Website greenlahome.vn được thiết kế rất chuyên nghiệp, giao diện đẹp mắt và dễ sử dụng, giúp tôi dễ dàng tìm hiểu các ý tưởng thiết kế nội thất phù hợp cho không gian sống của mình. Đội ngũ tư vấn tận tình, sáng tạo, đã mang đến cho gia đình tôi một không gian sống tiện nghi, sang trọng và đúng với sở thích. Tôi rất ấn tượng và sẽ tiếp tục ủng hộ trong tương lai!',
+          'Website greenlahome.vn được thiết kế rất chuyên nghiệp, giao diện đẹp mắt và dễ sử dụng, giúp tôi dễ dàng tìm hiểu các ý tưởng thiết kế nội thất phù hợp cho không gian sống của mình. Đội ngũ tư vấn tận tình, sáng tạo, đã mang đến cho gia đình tôi một không gian sống tiện nghi, sang trọng và đúng với sở thích. Tôi rất ấn tượng và sẽ tiếp tục ủng hộ trong tương lai!',
         rating: 5,
       },
       {

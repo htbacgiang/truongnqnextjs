@@ -3,7 +3,6 @@ import DefaultLayout from '../../components/layout/DefaultLayout';
 import DemoProduct from '../../components/profiles/DemoProduct';
 import WorkProcess from '../../components/profiles/WorkProcess';
 import NQWebHero from '../../components/profiles/NQWebHero';
-import Image from 'next/image';
 import CoreValues from '../../components/about/CoreValues';
 
 export default function Home() {

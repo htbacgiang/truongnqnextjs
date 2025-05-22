@@ -1,28 +1,14 @@
 import DefaultLayout from "../components/layout/DefaultLayout";
-import SubscribeSection from "../components/about/SubscribeSection";
-import AboutUsSection from "../components/about/AboutUsSection";
-import OrganicProcess from "../components/about/OrganicProcess";
+import SEOBenefitComponent from "../components/profiles/SEOBenefitComponent";
 import Banner from "../components/common/Banner";
-import Gallery from "../components/fontend/common/Gallery";
-import Product3 from "../components/product/Products3";
-import ProductHot from "../components/product/ProductHot";
 import PostCard from "../components/common/PostCard";
 import { readPostsFromDb, formatPosts } from "../lib/utils";
-import CardProject from "../components/profiles/CardProject";
-import EducationExperience from "../components/profiles/EducationExperience";
-import Experience from "../components/profiles/Experience";
 import ContactForm from "../components/profiles/ContactForm";
 import BlogHero from "../components/profiles/BlogHero";
-import PortfolioSection from "../components/profiles/PortfolioSection";
 import ProfileHero from "../components/profiles/ProfileHero";
 import TestimonialSection from "../components/profiles/TestimonialSection";
 import DemoSection from "../components/profiles/DemoSection";
-import AlbumShowcase from "../components/album/AlbumShowcase";
 import AboutMe from "../components/profiles/AboutMe";
-import DeviceShowcase from "../components/profiles/DeviceShowcase";
-import DemoProduct from "../components/profiles/DemoProduct";
-import WorkProcess from "../components/profiles/WorkProcess";
-import NQWebHero from "../components/profiles/NQWebHero";
 
 export default function Home({ posts }) {
   // Đối tượng JSON-LD cho Structured Data (Schema.org)
@@ -53,7 +39,7 @@ export default function Home({ posts }) {
       <DemoSection />
       <AboutMe />
       <ContactForm />
-      <AboutUsSection />
+      <SEOBenefitComponent />
       <TestimonialSection />
       <BlogHero />
       <div className="container mx-auto p-3 pb-10">
