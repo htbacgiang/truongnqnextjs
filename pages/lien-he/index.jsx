@@ -21,9 +21,7 @@ export default function ContactPage() {
                 Địa chỉ
               </h3>
               <p className="text-gray-400">
-                Đồng Tân, Ứng Hòa, Hà Nội
-                <br />
-                <p>(Cạnh cổng trường THPT Ứng Hòa B)</p>
+               Trầm Lộng, Ứng Hòa, Hà Nội
               </p>
             </div>
             {/* Card: E-Mail */}
